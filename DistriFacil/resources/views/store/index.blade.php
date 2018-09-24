@@ -5,8 +5,8 @@
      @if(Auth::check())     
      <header class="main-header">
       <a href="{{route('home')}}" class="logo">
-        <span class="logo-mini"><b>DG</b></span>
-        <span class="logo-lg"><b>GLACIAL</b></span>
+        <span class="logo-mini"><b>DF</b></span>
+        <span class="logo-lg"><b>DISTRI FACIL</b></span>
       </a>
       <nav class="navbar navbar-static-top" role="navigation">
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -17,8 +17,8 @@
         <ul class="nav navbar-nav">
           <li><a href="{{route('carrito-show')}}"></a></li>
           <li class="d">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-             {{ Auth::user()->user }}
+            <a>
+             {{ Auth::user()->nombre }}
            </a>
          </ul>
        </div>
@@ -27,8 +27,8 @@
    @else
    <header class="main-header">
     <a href="{{route('home')}}" class="logo">
-      <span class="logo-mini"><b>Gl</b></span>
-      <span class="logo-lg"><b>GLACIAL</b></span>
+      <span class="logo-mini"><b>DF</b></span>
+      <span class="logo-lg"><b>DISTRI FACIL</b></span>
     </a>
     <nav class="navbar navbar-static-top" role="navigation">
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -107,13 +107,13 @@
       </li>
       <li>
         <a href="{{ route('admin.user.edit', Auth::user()) }}">
-          <i class="fa fa"></i> <span>editar perfil</span>
+          <i class="fa fa"></i> <span>EDITAR PERFIL</span>
 
         </a>
       </li>
       <li>
         <a href="{{ route('logout') }}">
-          <i class="fa fa"></i> <span>finalizar sesion</span>
+          <i class="fa fa"></i> <span>FINALIZAR SESION</span>
 
         </a>
       </li>
