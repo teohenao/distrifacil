@@ -4,11 +4,10 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitee11048415c6587d4d9b86e64cff7062
+class ComposerStaticInit128ed49e56462cb0a98652b7d20c085a
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
@@ -39,7 +38,6 @@ class ComposerStaticInitee11048415c6587d4d9b86e64cff7062
             'Symfony\\Polyfill\\Util\\' => 22,
             'Symfony\\Polyfill\\Php56\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
-            'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\VarDumper\\' => 28,
             'Symfony\\Component\\Translation\\' => 30,
@@ -88,6 +86,7 @@ class ComposerStaticInitee11048415c6587d4d9b86e64cff7062
             'Cron\\' => 5,
             'Collective\\Html\\' => 16,
             'ClassPreloader\\' => 15,
+            'Carbon\\' => 7,
         ),
         'A' => 
         array (
@@ -121,10 +120,6 @@ class ComposerStaticInitee11048415c6587d4d9b86e64cff7062
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
-        ),
-        'Symfony\\Polyfill\\Ctype\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
         'Symfony\\Component\\Yaml\\' => 
         array (
@@ -234,14 +229,14 @@ class ComposerStaticInitee11048415c6587d4d9b86e64cff7062
         array (
             0 => __DIR__ . '/..' . '/classpreloader/classpreloader/src',
         ),
+        'Carbon\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
-    );
-
-    public static $fallbackDirsPsr4 = array (
-        0 => __DIR__ . '/..' . '/nesbot/carbon/src',
     );
 
     public static $prefixesPsr0 = array (
@@ -254,6 +249,10 @@ class ComposerStaticInitee11048415c6587d4d9b86e64cff7062
             'PhpSpec' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/phpspec/src',
+            ),
+            'PayPal' => 
+            array (
+                0 => __DIR__ . '/..' . '/paypal/rest-api-sdk-php/lib',
             ),
         ),
         'M' => 
@@ -817,11 +816,10 @@ class ComposerStaticInitee11048415c6587d4d9b86e64cff7062
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitee11048415c6587d4d9b86e64cff7062::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitee11048415c6587d4d9b86e64cff7062::$prefixDirsPsr4;
-            $loader->fallbackDirsPsr4 = ComposerStaticInitee11048415c6587d4d9b86e64cff7062::$fallbackDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitee11048415c6587d4d9b86e64cff7062::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitee11048415c6587d4d9b86e64cff7062::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit128ed49e56462cb0a98652b7d20c085a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit128ed49e56462cb0a98652b7d20c085a::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit128ed49e56462cb0a98652b7d20c085a::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit128ed49e56462cb0a98652b7d20c085a::$classMap;
 
         }, null, ClassLoader::class);
     }

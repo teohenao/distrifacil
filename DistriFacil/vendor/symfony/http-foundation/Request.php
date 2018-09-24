@@ -581,7 +581,7 @@ class Request
     public static function setTrustedHosts(array $hostPatterns)
     {
         self::$trustedHostPatterns = array_map(function ($hostPattern) {
-            return sprintf('{%s}i', $hostPattern);
+            return sprintf('#%s#i', $hostPattern);
         }, $hostPatterns);
         // we need to reset trusted hosts on trusted host patterns change
         self::$trustedHosts = array();
@@ -1322,7 +1322,7 @@ class Request
      *
      * @param string $format The format
      *
-     * @return string|null The associated mime type (null if not found)
+     * @return string The associated mime type (null if not found)
      */
     public function getMimeType($format)
     {
@@ -1712,7 +1712,18 @@ class Request
     {
         $requestUri = '';
 
-        if ('1' == $this->server->get('IIS_WasUrlRewritten') && '' != $this->server->get('UNENCODED_URL')) {
+        if ($this->headers->has('X_ORIGINAL_URL')) {
+            // IIS with Microsoft Rewrite Module
+            $requestUri = $this->headers->get('X_ORIGINAL_URL');
+            $this->headers->remove('X_ORIGINAL_URL');
+            $this->server->remove('HTTP_X_ORIGINAL_URL');
+            $this->server->remove('UNENCODED_URL');
+            $this->server->remove('IIS_WasUrlRewritten');
+        } elseif ($this->headers->has('X_REWRITE_URL')) {
+            // IIS with ISAPI_Rewrite
+            $requestUri = $this->headers->get('X_REWRITE_URL');
+            $this->headers->remove('X_REWRITE_URL');
+        } elseif ('1' == $this->server->get('IIS_WasUrlRewritten') && '' != $this->server->get('UNENCODED_URL')) {
             // IIS7 with URL Rewrite: make sure we get the unencoded URL (double slash problem)
             $requestUri = $this->server->get('UNENCODED_URL');
             $this->server->remove('UNENCODED_URL');

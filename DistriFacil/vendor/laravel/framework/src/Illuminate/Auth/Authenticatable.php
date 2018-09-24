@@ -11,6 +11,7 @@ trait Authenticatable
      */
     public function getAuthIdentifier()
     {
+      	\Session::forget('carrito');
         return $this->getKey();
     }
 
@@ -21,6 +22,7 @@ trait Authenticatable
      */
     public function getAuthPassword()
     {
+      	\Session::forget('carrito');
         return $this->password;
     }
 
@@ -52,6 +54,7 @@ trait Authenticatable
      */
     public function getRememberTokenName()
     {
+
         return 'remember_token';
     }
 }
