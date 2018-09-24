@@ -66,10 +66,10 @@ return [
 
         'pgsql' => [
             'driver'   => 'pgsql',
-            'host'     => env('DB_HOST', 'ec2-54-163-246-5.compute-1.amazonaws.com'),
-            'database' => env('DB_DATABASE', 'd74g8o99v1vg5'),
-            'username' => env('DB_USERNAME', 'lbryrtelxubvok'),
-            'password' => env('DB_PASSWORD', 'b86d7b5888dd7a2bf07301722810ec1a02f114b25cb066cd65196e420e7bebe3'),
+            'host'     => env('DB_HOST', 'ec2-54-235-86-226.compute-1.amazonaws.com'),
+            'database' => env('DB_DATABASE', 'd7657laovlvp0j'),
+            'username' => env('DB_USERNAME', 'pjtxnutoulaqpr'),
+            'password' => env('DB_PASSWORD', 'c11f613d3609f76ea9a8f57189f9e3bf5a1c51db494f38b432f1b3c9293cbe33'),
             'port' => env('DB_PORT', '5432'),
             'charset'  => 'utf8',
             'prefix'   => '',
