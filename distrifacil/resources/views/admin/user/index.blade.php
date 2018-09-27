@@ -1,15 +1,15 @@
 
 
 @extends('store.template')
-
+   <body class="hold-transition skin-blue sidebar-mini">
 @section('content')
 
 <div class="wrapper">
  <header class="main-header">
   <a href="{{route('home')}}" class="logo">
-    <span class="logo-mini"><b>DG</b></span>
-    <span class="logo-lg"><b> 
-        DistriFacil
+    <span class="logo-mini"><b>DF</b></span>
+    <span class="logo-lg"><b>
+        DISTRI FACIL
     </b></span>
 </a>
 <nav class="navbar navbar-static-top" role="navigation">
@@ -22,7 +22,7 @@
       <li><a href="{{route('carrito-show')}}"></a></li>
       <li class="d">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-         {{ Auth::user()->user }}
+         {{ Auth::user()->nombre }}
      </a>
  </ul>
 </div>
@@ -34,32 +34,35 @@
   <section class="sidebar">
     <ul class="sidebar-menu">
       <li>
+     <a href="{{ route('mail') }}">
+       <i class="fa fa"></i> <span>ENVIAR OFERTA</span>
+
+     </a>
+   </li>
+      <li>
         <a href="{{ route('admin.user.index') }}">
           <i class="fa fa"></i> <span>CLIENTES</span>
-          <small class="label pull-right bg-green">CL</small>
       </a>
   </li>
   <li>
     <a href="{{ route('admin.product.index') }}">
       <i class="fa fa"></i> <span>PRODUCTOS</span>
-      <small class="label pull-right bg-red">PR</small>
   </a>
 </li>
 <li>
     <a href="{{ route('admin.order.index') }}">
       <i class="fa fa"></i> <span>PEDIDOS</span>
-      <small class="label pull-right bg-yellow">VR</small>
   </a>
 </li>
 <li>
     <a href="{{ route('admin.user.edit', Auth::user()) }}">
-      <i class="fa fa"></i> <span>editar perfil</span>
+      <i class="fa fa"></i> <span>EDITAR PERFIL</span>
 
   </a>
 </li>
 <li>
     <a href="{{ route('logout') }}">
-      <i class="fa fa"></i> <span>finalizar sesion</span>
+      <i class="fa fa"></i> <span>FINALIZAR SESION</span>
 
   </a>
 </li>
@@ -72,7 +75,7 @@
 
 <!--Contenido-->
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">  
+<div class="content-wrapper">
   <!-- Main content -->
   <!-- /.box-header -->
   <div class="box-body">
@@ -110,32 +113,31 @@
         </h2></p>
         <hr>
         <div class="table-responsive">
-            <table class="table table-striped table-bordered table-hover">
+            <table class="table table-striped table-bordered table-hover ">
                 <thead align="text-center">
                     <tr>
-                        <th>Editar</th>
                         <th>Nombre</th>
                         <th>negocio</th>
                         <th>direccion</th>
                         <th>celular</th>
+                        <th>Editar</th>
                         <th>Eliminar</th>
 
                     </tr>
                 </thead>
-                <tbody>
+                <tbody body>
                     @foreach($users as $user)
                     <tr>
-                      <td>
-                        <a href="{{ route('admin.user.edit', $user) }}" class="btn btn-primary">
-                            <i class="fa fa-pencil-square-o"></i>
-                        </a>
-                    </td>
-
-                    <td>{{ $user->nombre }}</td>
-                    <td>{{ $user->nombre_negocio }}</td>
-                    <td>{{ $user->direccionr }}</td>
-                    <td>{{ $user->telefonor }}</td>
-                    <td>
+                    <td align="left">{{ $user->nombre }}</td>
+                    <td align="left">{{ $user->nombre_negocio }}</td>
+                    <td align="left">{{ $user->direccionr }}</td>
+                    <td align="left">{{ $user->telefonor }}</td>
+                    <td align="left">
+                      <a href="{{ route('admin.user.edit', $user) }}" class="btn btn-primary">
+                          <i class="fa fa-pencil-square-o"></i>
+                      </a>
+                  </td>
+                    <td align="left">
                         {!! Form::open(['route' => ['admin.user.destroy', $user]]) !!}
                         <input type="hidden" name="_method" value="DELETE">
                         <button onClick="return confirm('Eliminar registro?')" class="btn btn-danger">

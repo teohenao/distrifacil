@@ -1,30 +1,30 @@
 
 
 @extends('store.template')
-
+ <body class="hold-transition skin-blue sidebar-mini">
 @section('content')
 
 <div class="wrapper">
-   <header class="main-header">
-      <a href="{{route('home')}}" class="logo">
-        <span class="logo-mini"><b>DG</b></span>
-        <span class="logo-lg"><b> 
-            DistriFacil
-        </b></span>
-    </a>
-    <nav class="navbar navbar-static-top" role="navigation">
-        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-          <span class="sr-only">Navegación</span>
-      </a>
-  </form>
-  <div class="navbar-custom-menu">
+ <header class="main-header">
+  <a href="{{route('home')}}" class="logo">
+    <span class="logo-mini"><b>DF</b></span>
+    <span class="logo-lg"><b>
+        DISTRI FACIL
+    </b></span>
+</a>
+<nav class="navbar navbar-static-top" role="navigation">
+    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <span class="sr-only">Navegación</span>
+  </a>
+</form>
+<div class="navbar-custom-menu">
     <ul class="nav navbar-nav">
       <li><a href="{{route('carrito-show')}}"></a></li>
       <li class="d">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-           {{ Auth::user()->user }}
-       </a>
-   </ul>
+         {{ Auth::user()->nombre }}
+     </a>
+ </ul>
 </div>
 </nav>
 </header>
@@ -34,32 +34,35 @@
   <section class="sidebar">
     <ul class="sidebar-menu">
       <li>
+     <a href="{{ route('mail') }}">
+       <i class="fa fa"></i> <span>ENVIAR OFERTA</span>
+
+     </a>
+   </li>
+      <li>
         <a href="{{ route('admin.user.index') }}">
           <i class="fa fa"></i> <span>CLIENTES</span>
-          <small class="label pull-right bg-green">CL</small>
       </a>
   </li>
   <li>
     <a href="{{ route('admin.product.index') }}">
       <i class="fa fa"></i> <span>PRODUCTOS</span>
-      <small class="label pull-right bg-red">PR</small>
   </a>
 </li>
 <li>
     <a href="{{ route('admin.order.index') }}">
       <i class="fa fa"></i> <span>PEDIDOS</span>
-      <small class="label pull-right bg-yellow">VR</small>
   </a>
 </li>
 <li>
     <a href="{{ route('admin.user.edit', Auth::user()) }}">
-      <i class="fa fa"></i> <span>editar perfil</span>
+      <i class="fa fa"></i> <span>EDITAR PERFIL</span>
 
   </a>
 </li>
 <li>
     <a href="{{ route('logout') }}">
-      <i class="fa fa"></i> <span>finalizar sesion</span>
+      <i class="fa fa"></i> <span>FINALIZAR SESION</span>
 
   </a>
 </li>
@@ -69,10 +72,9 @@
 </aside>
 
 
-
 <!--Contenido-->
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">  
+<div class="content-wrapper">
   <!-- Main content -->
   <!-- /.box-header -->
   <div class="box-body">
@@ -86,9 +88,9 @@
 
         <div class="container text-center">
             <div class="page-header">
-                <h1>
-                  Agregar nuevo Administrador
-              </h1>
+                <h2>
+                  Agregar nuevo usuario
+              </h2>
           </div>
           <div class="row">
             <div class="col-md-offset-3 col-md-6">
@@ -116,7 +118,7 @@
                             !!}
                         </div>
 
-                        
+
                         <div class="form-group">
                             <label for="nombre">Nombre:</label>
                             {!!
@@ -163,7 +165,7 @@
                                         !!}
                                     </div>
                                     <div class="form-group">
-                                        <label for="nombre_negocio">ingrese su cargo en la empresa:</label>
+                                        <label for="nombre_negocio">nombre negocio:</label>
                                         {!!
                                             Form::text(
                                                 'nombre_negocio',
@@ -226,8 +228,8 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="tipo">Tipo de usuario:</label>
-                                                        {!! Form::radio('tipo', 'administrador',true) !!} Administrador
-                                                        {!! Form::radio('tipo', 'cliente') !!} CLiente
+                                                        {!! Form::radio('tipo', 'administrador') !!} Administrador
+                                                        {!! Form::radio('tipo', 'cliente',true) !!} CLiente
                                                     </div>
                                                     <div class="form-group">
                                                         {!! Form::submit('Crear', array('class'=>'btn btn-primary')) !!}

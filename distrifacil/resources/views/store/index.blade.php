@@ -1,11 +1,11 @@
 
 @extends('store.template')
+<body class="hold-transition skin-blue sidebar-collapse">
 @section('content')
  <div class="wrapper">
-     @if(Auth::check())     
+     @if(Auth::check())
      <header class="main-header">
       <a href="{{route('home')}}" class="logo">
-        <span class="logo-mini"><b>DF</b></span>
         <span class="logo-lg"><b>DISTRI FACIL</b></span>
       </a>
       <nav class="navbar navbar-static-top" role="navigation">
@@ -15,7 +15,7 @@
       </form>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <li><a href="{{route('carrito-show')}}"></a></li>
+           <li><a href="{{route('carrito-show')}}"><i class="fa fa-shopping-cart"></i></a></li>
           <li class="d">
             <a>
              {{ Auth::user()->nombre }}
@@ -25,32 +25,35 @@
      </nav>
    </header>
    @else
-   <header class="main-header">
-    <a href="{{route('home')}}" class="logo">
-      <span class="logo-mini"><b>DF</b></span>
-      <span class="logo-lg"><b>DISTRI FACIL</b></span>
-    </a>
-    <nav class="navbar navbar-static-top" role="navigation">
-      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-        <span class="sr-only"></span>
-      </a>
-      <div class="navbar-custom-menu">
+   <div class="body">
+    <header class="main-header">
+     <a href="{{route('home')}}" class="logo">
+       <span class="logo-mini"><b>DF</b></span>
+       <span class="logo-lg"><b>DISTRI FACIL</b></span>
+     </a>
+     <nav class="navbar navbar-static-top" role="navigation">
+       <span class="sr-only">Navegación</span>
+     </a>
+     <div class="navbar-custom-menu">
 
-        <ul class="nav navbar-nav">
-         <li>
-          <a href="{{ route('login-get') }}">
-            <i class="fa fa"></i> <span>Iniciar Sesion</span>
+       <ul class="nav navbar-nav">
+        <li>
+         <a href="{{ route('login-get') }}">
+           <i class="fa fa"></i> <span>Iniciar Sesion</span>
 
-          </a>
-        </li>
-      </ul>
-      
-    </div>
-  </nav>
-</header>
+         </a>
+       </li>
+     </ul>
+
+   </div>
+   </nav>
+   </header>
+
+
+
 @endif
 @if(Auth::check())
-@if (auth()->user()->tipo == 'administrador')   
+@if (auth()->user()->tipo == 'administrador')
 <aside class="main-sidebar">
   <section class="sidebar">
     <ul class="sidebar-menu">
@@ -96,12 +99,11 @@
 @else
 <aside class="main-sidebar">
   <section class="sidebar">
-    <p>si desea solicitar una visita de el vehiculo de productos de click en solicitar visita</p>
 
     <ul class="sidebar-menu">
       <li>
         <a href="#">
-          <i class="fa fa"></i> <span>Solicitar Visita</span>
+          <i class="fa fa"></i> <span>SOLICITAR VISITA</span>
 
         </a>
       </li>
@@ -135,7 +137,7 @@
 @endif
 <!--Contenido-->
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">  
+<div class="content-wrapper">
   <!-- Main content -->
   <!-- /.box-header -->
   <div class="box-body">
