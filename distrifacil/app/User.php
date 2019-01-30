@@ -39,17 +39,17 @@ class User extends Model implements AuthenticatableContract,
     public function scopeNombre($query, $nombre)
     {
 
-     $query->where('nombre',"LIKE","%$nombre%")
-           ->orWhere("email","like","%$nombre%")
-           ->orWhere("user","like","%$nombre%")
+        $query->where('nombre',"LIKE","%$nombre%")
+            ->orWhere("email","like","%$nombre%")
+            ->orWhere("user","like","%$nombre%")
         ->orWhere("identificacion","like","%$nombre%");
 
 
 
     }
     // Relation with Orders
-       public function orders()
-       {
-           return $this->hasMany('App\Order');
-       }
+        public function orders()
+        {
+            return $this->hasMany('App\Order');
+        }
 }

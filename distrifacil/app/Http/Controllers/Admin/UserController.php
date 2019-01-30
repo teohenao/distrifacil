@@ -18,15 +18,14 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-      if(auth()->user()->tipo == 'administrador'){
+        if(auth()->user()->tipo == 'administrador'){
         $users = User::nombre($request->get('nombre'))->orderBy('tipo')->paginate(15);
       
         return view('admin.user.index', compact('users'));
-    } 
-    else {
+    } else {
 
         return redirect()->route('home');
-      # code...
+        # code...
     } }
 
     /**
@@ -48,10 +47,10 @@ class UserController extends Controller
     public function store(SaveUserRequest $request)
     {
         $data = [
-             'tipod'        => $request->get('tipod'),
-             'identificacion' => $request->get('identificacion'),
-             'telefonor' => $request->get('telefonor'),
-             'direccionr' => $request->get('direccionr'),
+                'tipod'        => $request->get('tipod'),
+                'identificacion' => $request->get('identificacion'),
+                'telefonor' => $request->get('telefonor'),
+                'direccionr' => $request->get('direccionr'),
             'nombre_negocio' => $request->get('nombre_negocio'),
 
             'nombre'        => $request->get('nombre'),
@@ -117,7 +116,7 @@ class UserController extends Controller
         $user->direccionr = $request->get('direccionr');
         $user->email = $request->get('email');
         $user->user = $request->get('user');
-        if($request->get('password') !="") $user->password = \Hash::make($request->get('password'));
+        if ($request->get('password') != "") $user->password = \Hash::make($request->get('password'));
         $updated = $user->save();
         $message = $updated ? 'Usuario actualizado correctamente!' : 'El Usuario NO pudo actualizarse!';
         return redirect()->route('home')->with('message', $message);
@@ -127,12 +126,11 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
-        if(auth()->user()->tipo == 'administrador'){
+        if (auth()->user()->tipo == 'administrador') {
             $deleted = $user->delete();
         $message = $deleted ? 'Usuario eliminado correctamente!' : 'El Usuario NO pudo eliminarse!';
         return redirect()->route('admin.user.index')->with('message', $message);
-    } 
-    else {
+    } else {
 
         $deleted = $user->delete();
         $message = $deleted ? 'Usuario eliminado correctamente!' : 'El Usuario NO pudo eliminarse!';

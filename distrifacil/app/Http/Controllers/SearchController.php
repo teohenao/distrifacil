@@ -20,10 +20,10 @@ class SearchController extends Controller
     public function index(Request $request)
     {
 
-      $products = Product::nombre($request->get('nombre'))->orderBy('id', 'desc')->paginate(5);
+        $products = Product::nombre($request->get('nombre'))->orderBy('id', 'desc')->paginate(5);
 
 
-      return view('store.index', compact('products'));
+        return view('store.index', compact('products'));
     }
     public function show(Product $product)
     {

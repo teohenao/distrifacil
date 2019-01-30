@@ -8,7 +8,7 @@ class Product extends Model
 {
     protected $table = 'products';
 
-	protected $fillable = ['nombre', 'direccion', 'sabor', 'descripcion', 'cantidad', 'tipo', 'precio', 'imagen', 'visible'];
+    protected $fillable = ['nombre', 'direccion', 'sabor', 'descripcion', 'cantidad', 'tipo', 'precio', 'imagen', 'visible'];
 
 
 
@@ -21,8 +21,8 @@ class Product extends Model
     public function scopeNombre($query, $nombre)
     {
 
-     $query->where('nombre',"LIKE","%$nombre%")
-           ->orWhere("tipo","like","%$nombre%");
+        $query->where('nombre',"LIKE","%$nombre%")
+            ->orWhere("tipo","like","%$nombre%");
 
 
 

@@ -8,16 +8,16 @@ class Order extends Model
 {
     protected $table = 'orders';
 
-	protected $fillable = ['subtotal', 'pago', 'user_id'];
+    protected $fillable = ['subtotal', 'pago', 'user_id'];
 
-	// Relation with User
-	public function user()
-	{
-	    return $this->belongsTo('App\User');
-	}
+    // Relation with User
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 
-	public function order_items()
-	{
-	    return $this->hasMany('App\OrderItem');
-	}
+    public function order_items()
+    {
+        return $this->hasMany('App\OrderItem');
+    }
 }

@@ -13,15 +13,15 @@ class OrderController extends Controller
 {
     public function index()
     {
-    	$orders = Order::orderBy('id', 'desc')->paginate(5);
-    	//dd($orders);
-    	return view('admin.order.index', compact('orders'));
+        $orders = Order::orderBy('id', 'desc')->paginate(5);
+        //dd($orders);
+        return view('admin.order.index', compact('orders'));
     }
 
     public function getItems(Request $request)
     {
-    	$items = OrderItem::with('product')->where('order_id', $request->get('order_id'))->get();
-    	return json_encode($items);
+        $items = OrderItem::with('product')->where('order_id', $request->get('order_id'))->get();
+        return json_encode($items);
     }
 
     public function destroy($id)
