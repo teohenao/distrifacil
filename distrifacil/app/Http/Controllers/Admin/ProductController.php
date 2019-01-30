@@ -20,7 +20,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
 
-      $products = Product::nombre($request->get('nombre'))->orderBy('id', 'desc')->paginate(7);
+        $products = Product::nombre($request->get('nombre'))->orderBy('id', 'desc')->paginate(7);
 
         //dd($products);
         return view('admin.product.index', compact('products'));
@@ -44,7 +44,7 @@ class ProductController extends Controller
      * @param  Request  $request
      * @return Response
      */
-     public function store(SaveProductRequest $request)
+        public function store(SaveProductRequest $request)
     {
         $data = [
             'nombre'        => $request->get('nombre'),
@@ -88,7 +88,7 @@ class ProductController extends Controller
     {
 
 
-        return view('admin.product.edit', compact( 'product'));
+        return view('admin.product.edit', compact('product'));
     }
 
     /**
@@ -101,7 +101,7 @@ class ProductController extends Controller
     public function update(SaveProductRequest $request, Product $product)
     {
         $product->fill($request->all());
-        $product->direccion= str_slug($request->get('nombre'));
+        $product->direccion = str_slug($request->get('nombre'));
         $product->visible = $request->has('visible') ? 1 : 0;
 
         $updated = $product->save();

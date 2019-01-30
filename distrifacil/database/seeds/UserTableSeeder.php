@@ -13,23 +13,23 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         $data = array(
-			[
-				'tipod' 		=> 'documento',
-				'identificacion' => '1094952608',
-				'nombre' 	=> 'mateo henao rodriguez',
+            [
+                'tipod' 		=> 'documento',
+                'identificacion' => '1094952608',
+                'nombre' 	=> 'mateo henao rodriguez',
         'telefonor' 	=> '73701270',
         'direccionr' 	=> 'asturias casa 21',
         'nombre_negocio' 	=> 'distrifacil.inc',
         'email' 	=> 'mateohr880@gmail.com',
         'user' 	=> 'teopc',
-				'password' 	=> \Hash::make('mateo'),
-				'tipo' 		=> 'administrador',
-				'active' 	=> 1,
+                'password' 	=> \Hash::make('mateo'),
+                'tipo' 		=> 'administrador',
+                'active' 	=> 1,
 
-				'created_at'=> new DateTime,
-				'updated_at'=> new DateTime
-			],
-      [
+                'created_at'=> new DateTime,
+                'updated_at'=> new DateTime
+            ],
+        [
         'tipod' 		=> 'documento',
         'identificacion' => '001',
         'nombre' 	=> 'andres mancilla',
@@ -44,8 +44,8 @@ class UserTableSeeder extends Seeder
 
         'created_at'=> new DateTime,
         'updated_at'=> new DateTime
-      ],
-      [
+        ],
+        [
         'tipod' 		=> 'documento',
         'identificacion' => '12120102',
         'nombre' 	=> 'fabian ernesto',
@@ -60,8 +60,8 @@ class UserTableSeeder extends Seeder
 
         'created_at'=> new DateTime,
         'updated_at'=> new DateTime
-      ],
-      [
+        ],
+        [
         'tipod' 		=> 'documento',
         'identificacion' => '121201',
         'nombre' 	=> 'gloria bermudez',
@@ -76,8 +76,8 @@ class UserTableSeeder extends Seeder
 
         'created_at'=> new DateTime,
         'updated_at'=> new DateTime
-      ],
-      [
+        ],
+        [
         'tipod' 		=> 'documento',
         'identificacion' => '1212032',
         'nombre' 	=> 'john henrry',
@@ -92,9 +92,9 @@ class UserTableSeeder extends Seeder
 
         'created_at'=> new DateTime,
         'updated_at'=> new DateTime
-      ],
-		);
+        ],
+        );
 
-		User::insert($data);
+        User::insert($data);
     }
 }

@@ -34,7 +34,7 @@ class Authenticate
      * @return mixed
      */
 
- public function handle($request, Closure $next)
+    public function handle($request, Closure $next)
     {
         if ($this->auth->guest()) {
             if ($request->ajax()) {
@@ -43,10 +43,12 @@ class Authenticate
                 return redirect()->guest('auth/login');
             }
         }
-        if($request->path() == 'order-detail') return $next($request);
+        if($request->path() == 'order-detail') {
+            return $next($request);
+        }
 
                 if(auth()->user()->tipo != 'administrador'){
-                   // $message = 'Permiso denegado: Solo los administradores pueden entrar a esta seccion';
+                    // $message = 'Permiso denegado: Solo los administradores pueden entrar a esta seccion';
                     //return redirect()->route('home')->with('message', $message);
                 }
 

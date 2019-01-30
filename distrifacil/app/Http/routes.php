@@ -18,25 +18,25 @@ $message->to($user->email,$user->nombre)->subject('tenemos novedades para ti' .$
 	}
 */
 
-	Route::get('/', [
-	'as' => 'home',
-	'uses' => 'StoreController@index'
+    Route::get('/', [
+    'as' => 'home',
+    'uses' => 'StoreController@index'
 ]);
 
 Route::get('enviar',['as' => 'mail', function(){
 $users = App\User::all();
-	foreach ($users as $user) {
-	Mail::send('emails',['user'=> $user],function($message) use($user){
+    foreach ($users as $user) {
+    Mail::send('emails',['user'=> $user],function($message) use($user){
 $message->from('distrifacilarmenia@gmil.com','La Despensa de la Gaseosa');
 $message->to($user->email,$user->nombre)->subject('tenemos una promocion que te puede interesar ' .$user->nombre);
-	});
-	}
+    });
+    }
 
 
-	return "el correo fue enviado con exito" ;
+    return "el correo fue enviado con exito" ;
 }]);
 Route::bind('product', function($direccion){
-	return App\Product::where('direccion', $direccion)->first();
+    return App\Product::where('direccion', $direccion)->first();
 });
 
 
@@ -49,47 +49,47 @@ Route::bind('user', function($user){
 
 
 Route::get('/', [
-	'as' => 'home',
-	'uses' => 'StoreController@index'
+    'as' => 'home',
+    'uses' => 'StoreController@index'
 ]);
 Route::get('product/{direccion}', [
-	'as' => 'product-detail',
-	'uses' => 'StoreController@show'
+    'as' => 'product-detail',
+    'uses' => 'StoreController@show'
 ]);
 
 // Carrito -------------
 
 
 Route::get('carrito/show', [
-	'as' => 'carrito-show',
-	'uses' => 'CartController@show'
+    'as' => 'carrito-show',
+    'uses' => 'CartController@show'
 ]);
 
 Route::get('carrito/add/{product}', [
-	'middleware' => 'auth:user',
-	'as' => 'carrito-add',
-	'uses' => 'CartController@add'
+    'middleware' => 'auth:user',
+    'as' => 'carrito-add',
+    'uses' => 'CartController@add'
 ]);
 
 Route::get('carrito/delete/{product}',[
-	'as' => 'carrito-delete',
-	'uses' => 'CartController@delete'
+    'as' => 'carrito-delete',
+    'uses' => 'CartController@delete'
 ]);
 
 Route::get('carrito/trash', [
-	'as' => 'carrito-trash',
-	'uses' => 'CartController@trash'
+    'as' => 'carrito-trash',
+    'uses' => 'CartController@trash'
 ]);
 
 Route::get('carrito/update/{product}/{quantity}', [
-	'as' => 'carrito-update',
-	'uses' => 'CartController@update'
+    'as' => 'carrito-update',
+    'uses' => 'CartController@update'
 ]);
 
 Route::get('order-detail', [
-	'middleware' => 'auth:user',
-	'as' => 'order-detail',
-	'uses' => 'CartController@orderDetail'
+    'middleware' => 'auth:user',
+    'as' => 'order-detail',
+    'uses' => 'CartController@orderDetail'
 ]);
 
 
@@ -97,29 +97,29 @@ Route::get('order-detail', [
 
 
 Route::get('auth/login', [
-	'as' => 'login-get',
-	'uses' => 'Auth\AuthController@getLogin'
+    'as' => 'login-get',
+    'uses' => 'Auth\AuthController@getLogin'
 ]);
 
 Route::post('auth/login', [
-	'as' => 'login-post',
-	'uses' => 'Auth\AuthController@postLogin'
+    'as' => 'login-post',
+    'uses' => 'Auth\AuthController@postLogin'
 ]);
 
 Route::get('auth/logout', [
-	'as' => 'logout',
-	'uses' => 'Auth\AuthController@getLogout'
+    'as' => 'logout',
+    'uses' => 'Auth\AuthController@getLogout'
 ]);
 
 // Registration routes...
 Route::get('auth/register', [
-	'as' => 'register-get',
-	'uses' => 'Auth\AuthController@getRegister'
+    'as' => 'register-get',
+    'uses' => 'Auth\AuthController@getRegister'
 ]);
 
 Route::post('auth/register', [
-	'as' => 'register-post',
-	'uses' => 'Auth\AuthController@postRegister'
+    'as' => 'register-post',
+    'uses' => 'Auth\AuthController@postRegister'
 ]);
 
 
@@ -127,54 +127,54 @@ Route::post('auth/register', [
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function()
 {
 
-	Route::get('home', function(){
-		return view('admin.home');
-	});
+    Route::get('home', function(){
+        return view('admin.home');
+    });
 
-	Route::resource('product', 'ProductController');
+    Route::resource('product', 'ProductController');
 
 
 
-	Route::get('orders', [
-		'as' => 'admin.order.index',
-		'uses' => 'OrderController@index'
-	]);
+    Route::get('orders', [
+        'as' => 'admin.order.index',
+        'uses' => 'OrderController@index'
+    ]);
 
-	Route::post('order/get-items', [
-	    'as' => 'admin.order.getItems',
-	    'uses' => 'OrderController@getItems'
-	]);
+    Route::post('order/get-items', [
+        'as' => 'admin.order.getItems',
+        'uses' => 'OrderController@getItems'
+    ]);
 
-	Route::post('order/{id}', [
-	    'as' => 'admin.order.destroy',
-	    'uses' => 'OrderController@destroy'
-	]);
+    Route::post('order/{id}', [
+        'as' => 'admin.order.destroy',
+        'uses' => 'OrderController@destroy'
+    ]);
 
-	Route::get('sear', [
-		'as' => 'store.seac',
-		'uses' => 'ProductController@index'
-	]);
-	Route::get('sea', [
-		'as' => 'store.sea',
-		'uses' => 'UserController@index'
-	]);
+    Route::get('sear', [
+        'as' => 'store.seac',
+        'uses' => 'ProductController@index'
+    ]);
+    Route::get('sea', [
+        'as' => 'store.sea',
+        'uses' => 'UserController@index'
+    ]);
 
 
 });
 
 Route::get('search', [
-	'as' => 'store.search',
-  'uses' => 'SearchController@index'
+    'as' => 'store.search',
+    'uses' => 'SearchController@index'
 ]);
 Route::get('saveOrder', array(
-	'as' => 'save-order',
-	'uses' => 'StoreController@getOrder',
+    'as' => 'save-order',
+    'uses' => 'StoreController@getOrder',
 ));
-	Route::resource('admin/user', 'Admin\UserController');
+    Route::resource('admin/user', 'Admin\UserController');
 
 
 //	Route::get('admin/user', [
-	//	'middleware' => 'auth:ADMIN',
-	//	'as' => 'admin.user.index',
-	//	'uses' => 'UserController@index'
+    //	'middleware' => 'auth:ADMIN',
+    //	'as' => 'admin.user.index',
+    //	'uses' => 'UserController@index'
 //	]);

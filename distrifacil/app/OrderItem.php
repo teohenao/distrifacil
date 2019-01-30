@@ -8,16 +8,16 @@ class OrderItem extends Model
 {
     protected $table = 'order_items';
 
-	protected $fillable = ['precio', 'quantity', 'product_id', 'order_id'];
+    protected $fillable = ['precio', 'quantity', 'product_id', 'order_id'];
 
-	public $timestamps = false;
+    public $timestamps = false;
 
-	public function order()
-	{
-	    return $this->belongsTo('App\Order');
-	}
+    public function order()
+    {
+        return $this->belongsTo('App\Order');
+    }
 
-	public function product()
+    public function product()
     {
         return $this->belongsTo('App\Product');
     }

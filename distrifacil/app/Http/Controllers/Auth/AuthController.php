@@ -32,7 +32,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'getLogout']);
+        $this->middleware('guest', [ 'except' => 'getLogout' ]);
             \Session::forget('carrito');
     }
 
@@ -66,7 +66,7 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-             'tipod' => $data['tipod'],
+                'tipod' => $data['tipod'],
             'identificacion' => $data['identificacion'],
             'nombre' => $data['nombre'],
             'telefonor' => $data['telefonor'],

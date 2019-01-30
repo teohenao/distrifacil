@@ -13,7 +13,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-      	$table->increments('id');
+            $table->increments('id');
             $table->enum('tipod', ['documento', 'NIT']);
             $table->string('identificacion', 100);
             $table->string('nombre', 100);
@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('user', 50)->unique();
             $table->string('password', 60);
-            $table->enum('tipo', ['cliente', 'administrador']);
+            $table->enum('tipo', [ 'cliente', 'administrador' ]);
             $table->boolean('active');
             $table->rememberToken();
             $table->timestamps();

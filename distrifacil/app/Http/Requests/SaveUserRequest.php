@@ -24,7 +24,7 @@ class SaveUserRequest extends Request
     public function rules()
     {
         return [
-               'tipo'      => 'required|in:cliente,administrador'
+                'tipo'      => 'required|in:cliente,administrador'
 
           
         ];
