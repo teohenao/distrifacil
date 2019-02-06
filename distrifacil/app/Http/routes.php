@@ -32,7 +32,6 @@ $message->to($user->email,$user->nombre)->subject('tenemos una promocion que te 
 	});
 	}
 
-
 	return "el correo fue enviado con exito" ;
 }]);
 Route::bind('product', function($direccion){
