@@ -29,9 +29,9 @@
     <header class="main-header">
      <a href="{{route('home')}}" class="logo">
        <span class="logo-mini"><b>DF</b></span>
-       <span class="logo-lg"><b>GLACIAL</b></span>
+       <span class="logo-lg"><b>DISTRI FACIL</b></span>
      </a>
-     <nav class="navbar navbar-static-top" role="navigation">
+     <nav class="navbar navbar-static-top" roDISTRI FACILigation">
        <span class="sr-only">Navegación</span>
      </a>
      <div class="navbar-custom-menu">
