@@ -6,7 +6,7 @@
      @if(Auth::check())
      <header class="main-header">
       <a href="{{route('home')}}" class="logo">
-        <span class="logo-lg"><b>DISTRI---FACIL</b></span>
+        <span class="logo-lg"><b>DISTRI FACIL</b></span>
       </a>
       <nav class="navbar navbar-static-top" role="navigation">
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -29,7 +29,7 @@
     <header class="main-header">
      <a href="{{route('home')}}" class="logo">
        <span class="logo-mini"><b>DF</b></span>
-       <span class="logo-lg"><b>DISTRI---dsddFACIL</b></span>
+       <span class="logo-lg"><b>DISTRI FACIL</b></span>
      </a>
      <nav class="navbar navbar-static-top" roDISTRI FACILigation">
        <span class="sr-only">Navegación</span>
