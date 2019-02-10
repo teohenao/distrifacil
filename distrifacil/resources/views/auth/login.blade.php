@@ -38,9 +38,11 @@
 
        <p>
 
-        <button type="submit" style="text-align:right" class="btn btn-info"
-        >Ingresar</button>
-        <a style="text-align:left;" class="btn btn-danger" href="{{ route('register-get') }}">Registrarse </a>
+         <input type="submit" style="text-align:right" value="Ingresar" class="btn btn-info" />
+         <input type="button" style="text-align:left" value="Registrarse" class="btn btn-danger" onclick="location.href='{{ route('register-get') }}';" />
+
+
+
 
       </p>
 

@@ -73,7 +73,8 @@
 						</div>
 
 						<div class="form-group">
-							<button class="btn btn-primary" type="submit">Crear cuenta</button>
+							<input type="submit"  value="Crear cuenta" class="btn btn-primary" />
+				
 						</div>
 					</div>
 				</div>

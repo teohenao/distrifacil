@@ -316,6 +316,14 @@
                             {!! Form::submit('Actualizar', array('class'=>'btn btn-success')) !!}
                             <a href="{{ route('admin.user.index') }}" class="btn btn-default">Cancelar</a>
                         </div>
+                        <td align="left">
+                            {!! Form::open(['route' => ['admin.user.destroy', $user]]) !!}
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button class="btn btn-danger">
+                             <i class="fa fa-trash-o"></i>
+                         </button>
+                         {!! Form::close() !!}
+                     </td>
 
                     {!! Form::close() !!}
 
