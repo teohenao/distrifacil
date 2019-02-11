@@ -25,6 +25,13 @@ class ExampleTest extends TestCase
              ->dontSee('ErrorException')
              ->see('DISTRI FACIL');
     }
+    public function testRedirectView()
+    {
+    $this->visit('/admin/product')
+        ->seePageIs('/auth/login')
+        ->dontSee('ErrorException')
+        ->see('DISTRI FACIL');
+      }
       public function testLogin()
       {
       $this->visit('/auth/login')
@@ -73,10 +80,55 @@ class ExampleTest extends TestCase
             ->type('administrador', 'tipo')
             ->press('Crear')
             ->seePageIs('/admin/user');
-
-
-            ;
           }
+          public function testEditUser()
+          {
+          $this->visit('/auth/login')
+              ->dontSee('ErrorException')
+              ->see('DISTRI FACIL')
+              ->type('jcarlos.ad7@gmail.com', 'email')
+              ->type('carlos', 'password')
+              ->press('Ingresar')
+              ->visit('/admin/user/42/edit')
+              ->type('carlos', 'user')
+              ->press('Actualizar')
+              ->seePageIs('/');
+            }
+            public function testCreateProduct()
+            {
+            $this->visit('/auth/login')
+                ->dontSee('ErrorException')
+                ->see('DISTRI FACIL')
+                ->type('mateohr880@gmail.com', 'email')
+                ->type('mateo', 'password')
+                ->press('Ingresar')
+                ->visit('/admin/product/create')
+                ->type('test', 'nombre')
+                ->type('12345', 'cantidad')
+                ->type('agua', 'tipo')
+                ->type('uva', 'sabor')
+                ->type('tests', 'descripcion')
+                ->type('10.000', 'precio')
+                ->type('https://www.webconsultas.com/sites/default/files/styles/encabezado_articulo/public/articulos/resultados-test_9.jpg', 'imagen')
+                ->press('Guardar')
+                ->seePageIs('/admin/product');
+              }
+                public function testEditProduct()
+                {
+                $this->visit('/auth/login')
+                    ->dontSee('ErrorException')
+                    ->see('DISTRI FACIL')
+                    ->type('mateohr880@gmail.com', 'email')
+                    ->type('mateo', 'password')
+                    ->press('Ingresar')
+                    ->visit('/admin/product/test/edit')
+                    ->type('1', 'cantidad')
+                    ->press('Actualizar')
+                    ->seePageIs('/admin/product');
+                  }
+
+
+
 
 
 

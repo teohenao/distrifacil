@@ -217,6 +217,15 @@
 	                        </div>
 
 	                    {!! Form::close() !!}
+                      {!! Form::open(['route' => ['admin.product.destroy', $product->direccion]]) !!}
+                          <input type="hidden" name="_method" value="Eliminar">
+                    <button class="btn btn-danger">
+                            <i class="fa fa-trash-o"></i>
+                      </button>
+                        {!! Form::close() !!}
+
+
+
 
 	                </div>
 

@@ -81,29 +81,16 @@
   <div class="box-body">
     <div class="row">
       <div class="col-md-12">
-
-
-
-
-
-
-
         <div class="container text-center">
-
-
         </div>
-
-
-
     </div>
-
     <div class="page"  style="text-align:center;">
 
         <div class = "form-group">
             {!!Form::open(['route'=>'store.sea', 'method' => 'get', 'class' => 'navbar-form navbar-left', 'role' => 'search']) !!}
             {!!Form::text('nombre', null, ['class'=>'form-control', 'placeholder'=>'busqueda de usuario']) !!}
 
-            <button type = "submit" class = "btn btn-info"><i class="fa fa-search"></i></button>
+            <button type = "submit"  value="Buscar" class = "btn btn-info"><i class="fa fa-search"></i></button>
             {!! Form::close()!!}
             <p> <h2>
               <a href="{{ route('admin.user.create') }}" class="btn btn-info">
