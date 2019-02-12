@@ -76,7 +76,7 @@ class CartController extends Controller
         $total = $this->total();
 
 
-        return view('store.order-detail', compact('carrito', 'total'));
+        return view('store.order-detail', compact('carrito','total'));
     }
 
 
