@@ -25,7 +25,6 @@ class UserTableSeeder extends Seeder
 				'password' 	=> \Hash::make('mateo'),
 				'tipo' 		=> 'administrador',
 				'active' 	=> 1,
-
 				'created_at'=> new DateTime,
 				'updated_at'=> new DateTime
 			],
@@ -41,7 +40,6 @@ class UserTableSeeder extends Seeder
         'password' 	=> \Hash::make('mancilla'),
         'tipo' 		=> 'cliente',
         'active' 	=> 1,
-
         'created_at'=> new DateTime,
         'updated_at'=> new DateTime
       ],
@@ -57,7 +55,6 @@ class UserTableSeeder extends Seeder
         'password' 	=> \Hash::make('cliente1'),
         'tipo' 		=> 'cliente',
         'active' 	=> 1,
-
         'created_at'=> new DateTime,
         'updated_at'=> new DateTime
       ],
@@ -73,7 +70,6 @@ class UserTableSeeder extends Seeder
         'password' 	=> \Hash::make('cliente1'),
         'tipo' 		=> 'cliente',
         'active' 	=> 1,
-
         'created_at'=> new DateTime,
         'updated_at'=> new DateTime
       ],
@@ -89,7 +85,6 @@ class UserTableSeeder extends Seeder
         'password' 	=> \Hash::make('cliente1'),
         'tipo' 		=> 'cliente',
         'active' 	=> 1,
-
         'created_at'=> new DateTime,
         'updated_at'=> new DateTime
       ],
