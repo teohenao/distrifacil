@@ -16,7 +16,7 @@ class ExampleTest extends TestCase
         $this->visit('/')
             ->see(200)
             ->dontSee('ErrorException')
-            ->see('DISTRI FACIL');
+            ->see('HOLA ANA');
     }
     public function testVistaBuscarProductoInicio()
     {
