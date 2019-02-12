@@ -16,27 +16,26 @@ class ExampleTest extends TestCase
         $this->visit('/')
             ->see(200)
             ->dontSee('ErrorException')
-            ->see('DISTRI FACIL');
+            ->see('GLACIAL');
     }
     public function testVistaBuscarProductoInicio()
     {
         $this->visit('/search?nombre=')
             ->see(200)
              ->dontSee('ErrorException')
-             ->see('DISTRI FACIL');
+            ;
     }
     public function testRedirectView()
     {
     $this->visit('/admin/product')
         ->seePageIs('/auth/login')
         ->dontSee('ErrorException')
-        ->see('DISTRI FACIL');
+        ;
       }
       public function testLogin()
       {
       $this->visit('/auth/login')
           ->dontSee('ErrorException')
-          ->see('DISTRI FACIL')
           ->type('mateohr880@gmail.com', 'email')
           ->type('mateo', 'password')
           ->press('Ingresar')
@@ -46,8 +45,7 @@ class ExampleTest extends TestCase
       {
       $this->visit('/auth/register')
             ->dontSee('ErrorException')
-            ->see('DISTRI FACIL')
-            ->type('documento', 'tipod')
+                  ->type('documento', 'tipod')
             ->type('123456789', 'identificacion')
             ->type('test', 'nombre')
             ->type('1234', 'telefonor')
@@ -63,7 +61,6 @@ class ExampleTest extends TestCase
         {
         $this->visit('/auth/login')
             ->dontSee('ErrorException')
-            ->see('DISTRI FACIL')
             ->type('mateohr880@gmail.com', 'email')
             ->type('mateo', 'password')
             ->press('Ingresar')
@@ -85,7 +82,6 @@ class ExampleTest extends TestCase
           {
           $this->visit('/auth/login')
               ->dontSee('ErrorException')
-              ->see('DISTRI FACIL')
               ->type('jcarlos.ad7@gmail.com', 'email')
               ->type('carlos', 'password')
               ->press('Ingresar')
@@ -98,7 +94,6 @@ class ExampleTest extends TestCase
             {
             $this->visit('/auth/login')
                 ->dontSee('ErrorException')
-                ->see('DISTRI FACIL')
                 ->type('mateohr880@gmail.com', 'email')
                 ->type('mateo', 'password')
                 ->press('Ingresar')
@@ -117,7 +112,6 @@ class ExampleTest extends TestCase
                 {
                 $this->visit('/auth/login')
                     ->dontSee('ErrorException')
-                    ->see('DISTRI FACIL')
                     ->type('mateohr880@gmail.com', 'email')
                     ->type('mateo', 'password')
                     ->press('Ingresar')
