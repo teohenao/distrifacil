@@ -73,7 +73,6 @@ class CartController extends Controller
     {
         if(count(\Session::get('carrito')) <= 0) return redirect()->route('home');
         $carrito = \Session::get('carrito');
-        $pago = $this->pago();
         $total = $this->total();
 
 
