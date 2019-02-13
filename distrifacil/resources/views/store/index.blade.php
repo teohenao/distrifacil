@@ -39,7 +39,7 @@
        <ul class="nav navbar-nav">
         <li>
          <a href="{{ route('login-get') }}">
-           <i class="fa fa"></i> <span>Iniciar Sesion</span>
+           <i class="fa fa"></i> <span>HOLA</span>
 
          </a>
        </li>
